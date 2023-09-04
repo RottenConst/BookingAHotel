@@ -44,7 +44,7 @@ fun HotelPreview() {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start
     ) {
-        ImageHotel(
+        ImagePreview(
             modifier = modifier,
             image = painterResource(id = R.drawable.ic_launcher_foreground)
         )
@@ -56,7 +56,7 @@ fun HotelPreview() {
 }
 
 @Composable
-fun ImageHotel(modifier: Modifier, image: Painter) {
+fun ImagePreview(modifier: Modifier, image: Painter) {
     Surface(
         modifier = modifier
             .height(257.dp)
@@ -186,19 +186,25 @@ fun InfoTags(modifier: Modifier, tags: List<String>) {
             .height(66.dp)
     ) {
         LazyHorizontalStaggeredGrid(
-            rows = StaggeredGridCells.Fixed(2),
-            horizontalItemSpacing = 8.dp
+            rows = StaggeredGridCells.Adaptive(32.dp),
+            horizontalItemSpacing = 8.dp,
+            verticalArrangement = Arrangement.SpaceAround
         ) {
             items(tags.size) {
-                Box(modifier = modifier.padding(5.dp)) {
-                    Text(
-                        text = tags[it],
-                        fontSize = 16.sp,
-                        textAlign = TextAlign.Center
-                    )
-                }
+                Tag(modifier, tags[it])
             }
         }
+    }
+}
+
+@Composable
+fun Tag(modifier: Modifier, tag: String) {
+    Box(modifier = modifier.padding(4.dp)) {
+        Text(
+            text = tag,
+            fontSize = 16.sp,
+            textAlign = TextAlign.Center
+        )
     }
 }
 
