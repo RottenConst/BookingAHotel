@@ -29,9 +29,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import ru.konst.bookingahotel.R
+import ru.konst.bookingahotel.ui.theme.Blue
 import ru.konst.bookingahotel.ui.theme.BookingAHotelTheme
+import ru.konst.bookingahotel.ui.theme.BookingAHotelTypography
+import ru.konst.bookingahotel.ui.theme.GreyText
+import ru.konst.bookingahotel.ui.theme.Yellow
+import ru.konst.bookingahotel.ui.theme.YellowText
 
 
 @Composable
@@ -77,7 +81,7 @@ fun ImagePreview(modifier: Modifier, image: Painter) {
 fun RatingHotel(modifier: Modifier, rating: Int, ratingName: String) {
     Surface(
         modifier = modifier
-            .padding(top = 8.dp)
+            .padding(top = 8.dp),
     ) {
         Row(
             modifier = modifier
@@ -91,13 +95,15 @@ fun RatingHotel(modifier: Modifier, rating: Int, ratingName: String) {
                     .width(15.dp)
                     .height(15.dp),
                 painter = painterResource(id = R.drawable.icon_star),
-                contentDescription = "Star"
+                contentDescription = "Star",
+                tint = Yellow
             )
             Text(
                 text = "$rating $ratingName",
-                fontSize = 16.sp,
+                style = BookingAHotelTypography.bodyLarge,
                 textAlign = TextAlign.Center,
-                maxLines = 1
+                maxLines = 1,
+                color = YellowText
             )
         }
 
@@ -109,7 +115,7 @@ fun NameHotel(modifier: Modifier, name: String) {
     Text(
         modifier = modifier.padding(top = 8.dp),
         text = name,
-        fontSize = 22.sp
+        style = BookingAHotelTypography.labelLarge,
     )
 }
 
@@ -118,8 +124,8 @@ fun TagsHotel(modifier: Modifier, tags: String) {
     Text(
         modifier = modifier.padding(vertical = 8.dp),
         text = tags,
-        fontSize = 14.sp,
-        color = Color.Blue
+        style = BookingAHotelTypography.labelSmall,
+        color = Blue
     )
 }
 
@@ -135,16 +141,16 @@ fun PriceHotel(modifier: Modifier, price: String, service: String) {
     {
         Text(
             text = price,
-            fontSize = 30.sp
+            style = BookingAHotelTypography.titleLarge
         )
         Text(
             modifier = modifier
                 .fillMaxWidth()
                 .height(36.dp)
-                .padding(8.dp),
+                .padding(start = 8.dp, end = 8.dp, top = 8.dp),
             text = service,
-            fontSize = 16.sp,
-            color = Color.Gray,
+            style = BookingAHotelTypography.displayMedium,
+            color = GreyText,
         )
     }
 }
@@ -172,7 +178,7 @@ fun AboutHotelTitle(modifier: Modifier) {
             .padding(8.dp)
             .fillMaxWidth(),
         text = "Об отеле",
-        fontSize = 22.sp,
+        style = BookingAHotelTypography.labelLarge
     )
 }
 
@@ -202,8 +208,9 @@ fun Tag(modifier: Modifier, tag: String) {
     Box(modifier = modifier.padding(4.dp)) {
         Text(
             text = tag,
-            fontSize = 16.sp,
-            textAlign = TextAlign.Center
+            style = BookingAHotelTypography.bodyLarge,
+            textAlign = TextAlign.Center,
+            color = GreyText
         )
     }
 }
@@ -214,7 +221,7 @@ fun AboutHotelText(modifier: Modifier, text: String) {
     Text(
         modifier = modifier.padding(start = 8.dp, end = 8.dp, top = 4.dp, bottom = 8.dp),
         text = text,
-        fontSize = 16.sp
+        style = BookingAHotelTypography.displayMedium
     )
 }
 
@@ -278,12 +285,12 @@ fun NameButton(modifier: Modifier, name: String, subName: String) {
     Column(modifier = modifier.padding(horizontal = 8.dp)) {
         Text(
             text = name,
-            fontSize = 16.sp
+            style = BookingAHotelTypography.bodyLarge
         )
         Text(
             text = subName,
-            fontSize = 14.sp,
-            color = Color.Gray
+            style = BookingAHotelTypography.labelSmall,
+            color = GreyText
         )
     }
 }
@@ -300,7 +307,7 @@ fun ButtonSelectionRum(modifier: Modifier, text: String) {
     ) {
         Text(
             text = text,
-            fontSize = 16.sp
+            style = BookingAHotelTypography.bodyLarge
         )
     }
 }

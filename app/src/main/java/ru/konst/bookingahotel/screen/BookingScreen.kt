@@ -26,9 +26,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import ru.konst.bookingahotel.R
 import ru.konst.bookingahotel.ui.theme.BookingAHotelTheme
+import ru.konst.bookingahotel.ui.theme.BookingAHotelTypography
+import ru.konst.bookingahotel.ui.theme.GreyText
 
 @Composable
 fun BookingScreen(modifier: Modifier) {
@@ -71,14 +72,15 @@ fun Info(modifier: Modifier, title: String, info: String) {
         Text(
             modifier = modifier.width(140.dp),
             text = title,
-            fontSize = 16.sp,
-            color = Color.LightGray
+            style = BookingAHotelTypography.bodyLarge,
+            color = GreyText
         )
         Text(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp),
             text = info,
+            style = BookingAHotelTypography.bodyLarge,
             textAlign = TextAlign.Left
         )
     }
@@ -90,15 +92,16 @@ fun BuyerInformation(modifier: Modifier) {
         Column(modifier = modifier.padding(horizontal = 8.dp, vertical = 8.dp)) {
             Text(
                 modifier = modifier.padding(horizontal = 8.dp, vertical = 8.dp),
-                text = "Информация о покупателе"
+                text = "Информация о покупателе",
+                style = BookingAHotelTypography.labelLarge
             )
             InfoBuyer(modifier = modifier, title = "Номер телефона", info = "+7 (951) 555-99-00")
             InfoBuyer(modifier = modifier, title = "Почта", info = "examplemail.000@mail.ru")
             Text(
                 modifier = modifier.padding(horizontal = 8.dp, vertical = 8.dp),
                 text = "Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту",
-                fontSize = 14.sp,
-                color = Color.LightGray
+                style = BookingAHotelTypography.labelSmall,
+                color = GreyText
             )
         }
     }
@@ -110,11 +113,12 @@ fun InfoBuyer(modifier: Modifier, title: String, info: String) {
         Column(modifier = modifier.padding(horizontal = 16.dp, vertical = 4.dp)) {
             Text(
                 text = title,
-                fontSize = 12.sp
+                style = BookingAHotelTypography.displaySmall,
+                color = GreyText
             )
             Text(
                 text = info,
-                fontSize = 16.sp
+                style = BookingAHotelTypography.bodyLarge
             )
         }
 
@@ -229,14 +233,15 @@ fun PaymentInfo(modifier: Modifier, title: String, pay: String) {
         Text(
             modifier = modifier.width(140.dp),
             text = title,
-            fontSize = 16.sp,
-            color = Color.LightGray
+            style = BookingAHotelTypography.bodyLarge,
+            color = GreyText
         )
         Text(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp),
             text = pay,
+            style = BookingAHotelTypography.bodyLarge,
             textAlign = TextAlign.End
         )
     }
@@ -253,8 +258,8 @@ fun PaymentInfoAll(modifier: Modifier, title: String, pay: String) {
         Text(
             modifier = modifier.width(140.dp),
             text = title,
-            fontSize = 16.sp,
-            color = Color.LightGray
+            style = BookingAHotelTypography.bodyLarge,
+            color = GreyText
         )
         Text(
             modifier = modifier

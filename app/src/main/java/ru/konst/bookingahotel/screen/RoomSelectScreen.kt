@@ -16,9 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import ru.konst.bookingahotel.R
+import ru.konst.bookingahotel.ui.theme.Blue
 import ru.konst.bookingahotel.ui.theme.BookingAHotelTheme
+import ru.konst.bookingahotel.ui.theme.BookingAHotelTypography
 
 @Composable
 fun RoomSelectScreen() {
@@ -56,11 +57,13 @@ fun AboutRoomButton(modifier: Modifier) {
         Row {
             Text(
                 text = "Подробнее о номере",
-                fontSize = 16.sp
+                style = BookingAHotelTypography.bodyLarge,
+                color = Blue
             )
             Icon(
                 painter = painterResource(id = R.drawable.arrow_right_24),
-                contentDescription = "arrow"
+                contentDescription = "arrow",
+                tint = Blue
             )
         }
     }
